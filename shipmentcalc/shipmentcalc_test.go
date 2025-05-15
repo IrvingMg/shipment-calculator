@@ -4,7 +4,7 @@ import (
 	"maps"
 	"testing"
 
-	"shipmentcalc"
+	"shipment-calculator/shipmentcalc"
 )
 
 func TestShipmentCalc(t *testing.T) {
