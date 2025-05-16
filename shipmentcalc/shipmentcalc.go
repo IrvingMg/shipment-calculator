@@ -11,5 +11,10 @@ func New() *ShipmentCalculator {
 }
 
 func (s *ShipmentCalculator) CalculateTotalPacks(packSizes []int, itemsOrder int) map[int]int {
+	// At its core, the problem is to find the combination of numbers in 'packSizes'
+	// that sums to at least 'itemsOrder', with the following priorities (in order):
+	//
+	// 1. Minimize the amount by which the total exceeds 'itemsOrder'.
+	// 2. Minimize the number of elements used.
 	return map[int]int{0: 0}
 }
