@@ -43,3 +43,8 @@ docker-run-server: docker-build-server
 docker-run:
 	docker compose build --no-cache && \
 	docker compose up
+
+.PHONY: docker-deploy
+docker-deploy:
+	docker compose build --no-cache && \
+	docker compose up -d
