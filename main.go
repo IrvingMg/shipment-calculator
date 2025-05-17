@@ -17,7 +17,8 @@ func main() {
 	address := os.Args[1]
 
 	shipmentCalculator := shipmentcalc.New()
-	handler := httpserver.NewHandler(shipmentCalculator)
+	shipmentService := httpserver.NewShipmentService(shipmentCalculator)
+	handler := httpserver.NewHandler(shipmentService)
 	server := httpserver.New(address, handler)
 	go server.Start()
 
