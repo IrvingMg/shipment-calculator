@@ -17,16 +17,16 @@ clean:
 go-build:
 	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o $(BIN_DIR)/$(BIN_NAME) main.go
 
-.PHONY: go-run
-go-run:
+.PHONY: go-run-server
+go-run-server:
 	go run main.go
 
 .PHONY: go-test
 go-test:
 	go test ./... -v -count=1
 
-.PHONY: run
-run: go-build
+.PHONY: run-server
+run-server: go-build
 	./$(BIN_DIR)/$(BIN_NAME)
 
 ## Docker
@@ -37,7 +37,7 @@ docker-build-server:
 
 .PHONY: docker-run-server
 docker-run-server: docker-build-server
-	docker run --rm -p 8081:8080 $(IMAGE_SERVER_NAME):$(IMAGE_TAG)
+	docker run --rm -p 8080:8080 $(IMAGE_SERVER_NAME):$(IMAGE_TAG)
 
 .PHONY: docker-run
 docker-run:
