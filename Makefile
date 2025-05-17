@@ -41,5 +41,5 @@ docker-run-server: docker-build-server
 
 .PHONY: docker-run
 docker-run:
-	docker-compose build --no-cache && \
-	docker-compose up
+	docker compose build --no-cache && \
+	docker compose up
