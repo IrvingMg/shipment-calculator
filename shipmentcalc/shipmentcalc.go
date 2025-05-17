@@ -16,5 +16,16 @@ func (s *ShipmentCalculator) CalculateTotalPacks(packSizes []int, itemsOrder int
 	//
 	// 1. Minimize the amount by which the total exceeds 'itemsOrder'.
 	// 2. Minimize the number of elements used.
-	return map[int]int{0: 0}
+	state := BFSMinExcess(packSizes, itemsOrder)
+
+	return countFrequency(state.Path)
+}
+
+func countFrequency(nums []int) map[int]int {
+	frequencies := make(map[int]int)
+	for _, val := range nums {
+		frequencies[val]++
+	}
+
+	return frequencies
 }
