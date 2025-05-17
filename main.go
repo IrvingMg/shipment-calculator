@@ -11,10 +11,10 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 2 {
-		log.Fatal("Usage: ./shipmentcalc <address>")
+	address := os.Getenv("HTTP_ADDRESS")
+	if address == "" {
+		address = ":8080"
 	}
-	address := os.Args[1]
 
 	shipmentCalculator := shipmentcalc.New()
 	shipmentService := httpserver.NewShipmentService(shipmentCalculator)

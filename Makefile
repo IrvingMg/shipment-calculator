@@ -2,7 +2,6 @@ BIN_NAME := shipmentcalc
 BIN_DIR ?= bin
 GOOS ?= linux
 GOARCH ?= amd64
-ADDRESS ?= ":8080"
 
 .PHONY: build
 build:
@@ -14,7 +13,7 @@ clean:
 
 .PHONY: run
 run:
-	go run main.go $(ADDRESS)
+	go run main.go
 
 .PHONY: test
 test:
@@ -22,4 +21,4 @@ test:
 
 .PHONY: start-server
 start-server: build
-	./$(BIN_DIR)/$(BIN_NAME) $(ADDRESS)
+	./$(BIN_DIR)/$(BIN_NAME)
